@@ -113,3 +113,26 @@ describe('Insert element', function(){
     expect(list.dataStore[2]).toEqual('Durham, NC');
   });
 });
+
+describe('Traversal', function(){
+  beforeAll(function(){
+    list = new List();
+  });
+  
+  it('Front should move position to first element', function(){
+    list.front();
+    expect(list.position).toEqual(0);
+  });
+
+  it('End should move position to last element', function(){
+    list.append('Seattle, WA');
+    list.append('Durham, NC');
+    list.end();
+    expect(list.position).toEqual(1);
+  });
+
+  it('Give previous position', function(){
+    list.previous();
+    expect(list.position).toEqual(0);
+  });
+});

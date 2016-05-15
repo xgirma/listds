@@ -8,6 +8,9 @@ function List() {
   this.clear = clear;
   this.contains = contains;
   this.insert = insert;
+  this.front = front;
+  this.end = end;
+  this.previous = previous;
 }
 
 function length() {
@@ -51,3 +54,18 @@ function insert(after, element){
   }
   return false;
 }
+
+function front(){
+  this.position = 0;
+}
+
+function end() {
+  this.position = this.size - 1;
+}
+
+function previous() {
+  if(this.position > 0){
+    --this.position;
+  }
+}
+
