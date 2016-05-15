@@ -4,6 +4,6 @@ function List() {
   this.length = length;
 }
 
-function length(){
+function length() {
   return this.size;
 }

@@ -13,6 +13,6 @@ describe('list constructor', function(){
   });
 
   it('length should be 0', function(){
-    expect(list.length()).toEqual(100);
+    expect(list.length()).toEqual(0);
   });
 });
