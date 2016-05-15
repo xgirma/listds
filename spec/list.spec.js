@@ -40,7 +40,7 @@ describe('Find element', function(){
     list.append('Durham, NC');
   });
 
-  it('Find an element', function(){
+  it('Find an existing element', function(){
     expect(list.find('Durham, NC')).toEqual(1);
   });
 
@@ -70,5 +70,21 @@ describe('Clear list', function(){
       expect(list.size).toBe(0);
       expect(list.position).toBe(0);
     });
+  });
+});
+
+describe('Contains element', function(){
+  beforeAll(function(){
+    list = new List();
+    list.append('Seattle, WA');
+    list.append('Durham, NC');
+  });
+
+  it('Verify if element exist', function(){
+    expect(list.contains('Durham, NC')).toBe(true);
+  });
+
+  it('Return error, if element do not exist', function(){
+    expect(list.contains('Bellevue, WA')).toBe(false);
   });
 });

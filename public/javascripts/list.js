@@ -6,6 +6,7 @@ function List() {
   this.append = append;
   this.find = find;
   this.clear = clear;
+  this.contains = contains;
 }
 
 function length() {
@@ -29,4 +30,13 @@ function clear(){
   delete this.dataStore;
   this.dataStore = [];
   this.size = this.position = 0;
+}
+
+function contains(element) {
+  for(var i = 0; i < this.dataStore.length; ++i){
+    if(this.dataStore[i] == element){
+      return true;
+    }
+  }
+  return false;
 }
