@@ -7,6 +7,7 @@ function List() {
   this.find = find;
   this.clear = clear;
   this.contains = contains;
+  this.insert = insert;
 }
 
 function length() {
@@ -37,6 +38,16 @@ function contains(element) {
     if(this.dataStore[i] == element){
       return true;
     }
+  }
+  return false;
+}
+
+function insert(after, element){
+  var insertPosition = this.find(after);
+  if(insertPosition > -1){
+    this.dataStore.splice((insertPosition + 1), 0, element);
+    ++this.size;
+    return true;
   }
   return false;
 }

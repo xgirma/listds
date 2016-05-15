@@ -88,3 +88,28 @@ describe('Contains element', function(){
     expect(list.contains('Bellevue, WA')).toBe(false);
   });
 });
+
+describe('Insert element', function(){
+  beforeAll(function(){
+    list = new List();
+    list.append('Seattle, WA');
+    list.append('Durham, NC');
+  });
+
+  it('Before insert', function(){
+    expect(list.size).toEqual(2);
+  });
+
+  it('After insert', function(){
+    list.insert('Seattle, WA', 'Bellevue, WA');
+    expect(list.size).toEqual(3);
+  });
+
+  it('Find inserted element', function(){
+    expect(list.dataStore[1]).toEqual('Bellevue, WA');
+  });
+
+  it('Find moved element', function(){
+    expect(list.dataStore[2]).toEqual('Durham, NC');
+  });
+});
