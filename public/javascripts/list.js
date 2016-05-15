@@ -5,6 +5,7 @@ function List() {
   this.dataStore = [];
   this.append = append;
   this.find = find;
+  this.clear = clear;
 }
 
 function length() {
@@ -17,10 +18,15 @@ function append(element) {
 
 function find(element){
   for(var i = 0; i < this.dataStore.length; ++i){
-    console.log('inside ...');
     if(this.dataStore[i] == element){
       return i;
     }
   }
   return -1;
+}
+
+function clear(){
+  delete this.dataStore;
+  this.dataStore = [];
+  this.size = this.position = 0;
 }

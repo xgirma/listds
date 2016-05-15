@@ -48,3 +48,27 @@ describe('Find element', function(){
     expect(list.find('Bellevue, WA')).toEqual(-1);
   });
 });
+
+describe('Clear list', function(){
+  beforeAll(function(){
+    list = new List();
+    list.append('Seattle, WA');
+    list.append('Durham, NC');
+  });
+
+  it('Have 2 elements', function(){
+    expect(list.size).toEqual(2);
+  });
+
+  describe('Clear', function(){
+    beforeAll(function(){
+      list.clear();
+    });
+
+    it('No element', function(){
+      expect(list.dataStore.length).toBe(0);
+      expect(list.size).toBe(0);
+      expect(list.position).toBe(0);
+    });
+  });
+});
