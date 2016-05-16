@@ -12,6 +12,8 @@ function List() {
   this.end = end;
   this.previous = previous;
   this.next = next;
+  this.currentPosition = currentPosition;
+  this.moveTo = moveTo;
 }
 
 function length() {
@@ -73,5 +75,15 @@ function previous() {
 function next() {
   if(this.position < this.size){
     ++this.position;
+  }
+}
+
+function currentPosition() {
+  return this.position;
+}
+
+function moveTo(position) {
+  if(position > -1 && position < this.dataStore.length - 1){
+    this.position = position;
   }
 }

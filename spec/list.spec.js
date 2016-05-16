@@ -143,4 +143,23 @@ describe('Traversal', function(){
     list.next();
     expect(list.position).toEqual(1);
   });
+
+  it('Return current position', function(){
+    expect(list.currentPosition()).toEqual(0);
+    list.end();
+    expect(list.currentPosition()).toEqual(1);
+    list.previous();
+    expect(list.currentPosition()).toEqual(0);
+  });
+
+  it('Move position', function(){
+    list.append('Chapel Hill, NC');
+    list.append('Cary, NC');
+    list.moveTo(2);
+    expect(list.position).toEqual(2);
+    list.moveTo(0);
+    expect(list.position).toEqual(0);
+    list.moveTo(100);
+    expect(list.position).toEqual(0);
+  });
 });
