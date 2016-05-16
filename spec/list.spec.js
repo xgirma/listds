@@ -182,3 +182,23 @@ describe('Traversal', function(){
     expect(city.getElement()).toEqual('Chapel Hill, NC');
   });
 });
+
+describe('Iterating', function(){
+  var cities = ['Seattle, WA', 'Durham, NC', 'Chapel Hill, NC',
+    'Cary, NC', 'Bellevue, WA', 'Redmond, WA'];
+  beforeAll(function(){
+    city = new List();
+    city.append('Seattle, WA');
+    city.append('Durham, NC');
+    city.append('Chapel Hill, NC');
+    city.append('Cary, NC');
+    city.append('Bellevue, WA');
+    city.append('Redmond, WA');
+  });
+
+  it('Should iterate', function(){
+    for(city.front(); city.currentPosition() < city.length(); city.next()){
+      expect(city.getElement()).toEqual(cities[city.currentPosition()]);
+    }
+  });
+});
