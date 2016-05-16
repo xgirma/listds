@@ -11,6 +11,8 @@
     <script type="text/javascript" src="jasmine-2.4.1/jasmine-html.js"></script>
     <script type="text/javascript" src="jasmine-2.4.1/boot.js"></script>
 
+    <script type="text/javascript" src="javascripts/page.js"></script>
+
     <!-- include source files here... -->
     <script src="javascripts/list.js"></script>
 
@@ -18,7 +20,7 @@
     <script src="list.spec.js"></script>
   </head>
 
-  <body>
+  <body onload="startPage();">
     <h1 align="right"><%= title %> </h1>
     <p align="right">List abstract data type (ADT) in Javascript</p>
     <p align="right">https://github.com/xgirma/listds</p>
@@ -130,5 +132,27 @@
       This method changes the original array.</p>
     <p>array.splice(index, howmany, item<sub>1</sub>, ...,item<sub>n</sub>)</p>
     <p>more: http://www.w3schools.com/jsref/jsref_splice.asp</p>
+
+    <h2>Video-rental kiosk</h2>
+    <p>Video-rental kiosk is a list based application. It has the "kiosk owner" and two customers named "John" and "Jane".</p>
+    <div id="wrapper">
+      <div id="leftBar">
+        <h3>kiosk</h3>
+        <button type="button" id="open-kiosk">Open kiosk</button>
+        <button type="button" id="close-kiosk">Close kiosk</button>
+      </div>
+
+      <div id="rightBar">
+        <h3>John</h3>
+        <button type="button" id="john-start">Start rent</button>
+        <button type="button" id="john-end">End rent</button>
+        <h3>Jane</h3>
+        <button type="button" id="jane-start">Start rent</button>
+        <button type="button" id="jane-end">End rent</button>
+      </div>
+      <div id="cleared"></div>
+    </div>
+
+    <h2>List ADT unit test</h2>
   </body>
 </html>

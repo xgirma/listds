@@ -6,3 +6,18 @@ body {
 a {
   color: #00B7FF;
 }
+
+#wrapper {
+  margin-right: 200px;
+}
+#leftBar {
+  float: left;
+  width: 50%;
+}
+#rightBar {
+  float: right;
+  width: 50%;
+}
+#cleared {
+  clear: both;
+}
