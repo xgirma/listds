@@ -90,7 +90,7 @@ describe('Contains element', function(){
 });
 
 describe('Insert element', function(){
-  beforeAll(function(){
+  beforeEach(function(){
     list = new List();
     list.append('Seattle, WA');
     list.append('Durham, NC');
@@ -106,17 +106,21 @@ describe('Insert element', function(){
   });
 
   it('Find inserted element', function(){
+    list.insert('Seattle, WA', 'Bellevue, WA');
     expect(list.dataStore[1]).toEqual('Bellevue, WA');
   });
 
   it('Find moved element', function(){
+    list.insert('Seattle, WA', 'Bellevue, WA');
     expect(list.dataStore[2]).toEqual('Durham, NC');
   });
 });
 
 describe('Traversal', function(){
-  beforeAll(function(){
+  beforeEach(function(){
     list = new List();
+    list.append('Seattle, WA');
+    list.append('Durham, NC');
   });
   
   it('Front should move position to first element', function(){
@@ -125,14 +129,18 @@ describe('Traversal', function(){
   });
 
   it('End should move position to last element', function(){
-    list.append('Seattle, WA');
-    list.append('Durham, NC');
     list.end();
     expect(list.position).toEqual(1);
   });
 
   it('Give previous position', function(){
+    list.end();
     list.previous();
     expect(list.position).toEqual(0);
+  });
+
+  it('Give next position', function(){
+    list.next();
+    expect(list.position).toEqual(1);
   });
 });

@@ -11,6 +11,7 @@ function List() {
   this.front = front;
   this.end = end;
   this.previous = previous;
+  this.next = next;
 }
 
 function length() {
@@ -69,3 +70,8 @@ function previous() {
   }
 }
 
+function next() {
+  if(this.position < this.size){
+    ++this.position;
+  }
+}
