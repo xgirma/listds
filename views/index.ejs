@@ -10,8 +10,7 @@
     <script type="text/javascript" src="jasmine-2.4.1/jasmine.js"></script>
     <script type="text/javascript" src="jasmine-2.4.1/jasmine-html.js"></script>
     <script type="text/javascript" src="jasmine-2.4.1/boot.js"></script>
-
-    <script type="text/javascript" src="javascripts/page.js"></script>
+    <script type="text/javascript" src="jquery-1.12.3.min.js"></script>
 
     <!-- include source files here... -->
     <script src="javascripts/list.js"></script>
@@ -20,7 +19,7 @@
     <script src="list.spec.js"></script>
   </head>
 
-  <body onload="startPage();">
+  <body>
     <h1 align="right"><%= title %> </h1>
     <p align="right">List abstract data type (ADT) in Javascript</p>
     <p align="right">https://github.com/xgirma/listds</p>
@@ -154,5 +153,13 @@
     </div>
 
     <h2>List ADT unit test</h2>
+
+  <script>
+    $(document).ready(function(){
+      $("#close-kiosk").prop("disabled",true);
+      $("#john-end").prop("disabled",true);
+      $("#jane-end").prop("disabled",true);
+    });
+  </script>
   </body>
 </html>
