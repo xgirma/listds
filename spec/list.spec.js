@@ -1,204 +1,204 @@
-var city;
+var movie;
 
 describe('List constructor', function(){
   beforeAll(function(){
-    city = new List();
+    movie = new List();
   });
 
   it('Size should be 0', function(){
-    expect(city.size).toEqual(0);
+    expect(movie.size).toEqual(0);
   });
 
   it('Position should be 0', function(){
-    expect(city.position).toEqual(0);
+    expect(movie.position).toEqual(0);
   });
 
   it('Length should be 0', function(){
-    expect(city.length()).toEqual(0);
+    expect(movie.length()).toEqual(0);
   });
 
   it('Should have no element', function(){
-    expect(city.dataStore.length).toEqual(0);
+    expect(movie.dataStore.length).toEqual(0);
   });
 });
 
 describe('Appending data', function(){
   beforeAll(function(){
-    city = new List();
-    city.append('Seattle, WA');
+    movie = new List();
+    movie.append('City of God');
   });
 
   it('Length should be 1', function(){
-    expect(city.length()).toEqual(1);
+    expect(movie.length()).toEqual(1);
   });
 });
 
 describe('Find element', function(){
   beforeAll(function(){
-    city = new List();
-    city.append('Seattle, WA');
-    city.append('Durham, NC');
+    movie = new List();
+    movie.append('Forrest Gump');
+    movie.append('The Matrix');
   });
 
   it('Find an existing element', function(){
-    expect(city.find('Durham, NC')).toEqual(1);
+    expect(movie.find('The Matrix')).toEqual(1);
   });
 
   it('Return error, if element do not exist', function(){
-    expect(city.find('Bellevue, WA')).toEqual(-1);
+    expect(movie.find('Star Wars')).toEqual(-1);
   });
 });
 
 describe('Clear list', function(){
   beforeAll(function(){
-    city = new List();
-    city.append('Seattle, WA');
-    city.append('Durham, NC');
+    movie = new List();
+    movie.append('Fight Club');
+    movie.append('12 Angry Men');
   });
 
   it('Have 2 elements', function(){
-    expect(city.size).toEqual(2);
+    expect(movie.size).toEqual(2);
   });
 
   describe('Clear', function(){
     beforeAll(function(){
-      city.clear();
+      movie.clear();
     });
 
     it('No element', function(){
-      expect(city.dataStore.length).toBe(0);
-      expect(city.size).toBe(0);
-      expect(city.position).toBe(0);
+      expect(movie.dataStore.length).toBe(0);
+      expect(movie.size).toBe(0);
+      expect(movie.position).toBe(0);
     });
   });
 });
 
 describe('Contains element', function(){
   beforeAll(function(){
-    city = new List();
-    city.append('Seattle, WA');
-    city.append('Durham, NC');
+    movie = new List();
+    movie.append('Inception');
+    movie.append('Goodfellas');
   });
 
   it('Verify if element exist', function(){
-    expect(city.contains('Durham, NC')).toBe(true);
+    expect(movie.contains('Inception')).toBe(true);
   });
 
   it('Return error, if element do not exist', function(){
-    expect(city.contains('Bellevue, WA')).toBe(false);
+    expect(movie.contains('Schindler’s Lis')).toBe(false);
   });
 });
 
 describe('Insert element', function(){
   beforeEach(function(){
-    city = new List();
-    city.append('Seattle, WA');
-    city.append('Durham, NC');
+    movie = new List();
+    movie.append('Pulp Fiction');
+    movie.append('The Dark Knight');
   });
 
   it('Before insert', function(){
-    expect(city.size).toEqual(2);
+    expect(movie.size).toEqual(2);
   });
 
   it('After insert', function(){
-    city.insert('Seattle, WA', 'Bellevue, WA');
-    expect(city.size).toEqual(3);
+    movie.insert('Pulp Fiction', 'The Godfather');
+    expect(movie.size).toEqual(3);
   });
 
   it('Find inserted element', function(){
-    city.insert('Seattle, WA', 'Bellevue, WA');
-    expect(city.dataStore[1]).toEqual('Bellevue, WA');
+    movie.insert('Pulp Fiction', 'The Godfather');
+    expect(movie.dataStore[1]).toEqual('The Godfather');
   });
 
   it('Find moved element', function(){
-    city.insert('Seattle, WA', 'Bellevue, WA');
-    expect(city.dataStore[2]).toEqual('Durham, NC');
+    movie.insert('Pulp Fiction', 'The Godfather');
+    expect(movie.dataStore[2]).toEqual('The Dark Knight');
   });
 });
 
 describe('Traversal', function(){
   beforeEach(function(){
-    city = new List();
-    city.append('Seattle, WA');
-    city.append('Durham, NC');
+    movie = new List();
+    movie.append('The Dark Knight');
+    movie.append('Forrest Gump');
   });
   
   it('Front should move position to first element', function(){
-    city.front();
-    expect(city.position).toEqual(0);
+    movie.front();
+    expect(movie.position).toEqual(0);
   });
 
   it('End should move position to last element', function(){
-    city.end();
-    expect(city.position).toEqual(1);
+    movie.end();
+    expect(movie.position).toEqual(1);
   });
 
   it('Give previous position', function(){
-    city.end();
-    city.previous();
-    expect(city.position).toEqual(0);
+    movie.end();
+    movie.previous();
+    expect(movie.position).toEqual(0);
   });
 
   it('Give next position', function(){
-    city.next();
-    expect(city.position).toEqual(1);
+    movie.next();
+    expect(movie.position).toEqual(1);
   });
 
   it('Return current position', function(){
-    expect(city.currentPosition()).toEqual(0);
-    city.end();
-    expect(city.currentPosition()).toEqual(1);
-    city.previous();
-    expect(city.currentPosition()).toEqual(0);
+    expect(movie.currentPosition()).toEqual(0);
+    movie.end();
+    expect(movie.currentPosition()).toEqual(1);
+    movie.previous();
+    expect(movie.currentPosition()).toEqual(0);
   });
 
   it('Move position', function(){
-    city.append('Chapel Hill, NC');
-    city.append('Cary, NC');
-    city.moveTo(2);
-    expect(city.position).toEqual(2);
-    city.moveTo(0);
-    expect(city.position).toEqual(0);
-    city.moveTo(100);
-    expect(city.position).toEqual(0);
+    movie.append('Fight Club');
+    movie.append('Goodfellas');
+    movie.moveTo(2);
+    expect(movie.position).toEqual(2);
+    movie.moveTo(0);
+    expect(movie.position).toEqual(0);
+    movie.moveTo(100);
+    expect(movie.position).toEqual(0);
   });
 
   it('Get element', function(){
-    city.clear();
-    expect(city.getElement()).toEqual(undefined);
-    city.append('Seattle, WA');
-    city.append('Durham, NC');
-    city.append('Chapel Hill, NC');
-    city.append('Cary, NC');
-    city.end();
-    expect(city.getElement()).toEqual('Cary, NC');
-    city.front();
-    expect(city.getElement()).toEqual('Seattle, WA');
-    city.next();
-    expect(city.getElement()).toEqual('Durham, NC');
-    city.previous();
-    expect(city.getElement()).toEqual('Seattle, WA');
-    city.moveTo(2);
-    expect(city.getElement()).toEqual('Chapel Hill, NC');
+    movie.clear();
+    expect(movie.getElement()).toEqual(undefined);
+    movie.append('The Shawshank Redemption');
+    movie.append('Inception');
+    movie.append('Seven Samurai');
+    movie.append('City of God');
+    movie.end();
+    expect(movie.getElement()).toEqual('City of God');
+    movie.front();
+    expect(movie.getElement()).toEqual('The Shawshank Redemption');
+    movie.next();
+    expect(movie.getElement()).toEqual('Inception');
+    movie.previous();
+    expect(movie.getElement()).toEqual('The Shawshank Redemption');
+    movie.moveTo(2);
+    expect(movie.getElement()).toEqual('Seven Samurai');
   });
 });
 
 describe('Iterating', function(){
-  var cities = ['Seattle, WA', 'Durham, NC', 'Chapel Hill, NC',
-    'Cary, NC', 'Bellevue, WA', 'Redmond, WA'];
+  var cities = ['Seven Samurai', 'Forrest Gump', 'The Matrix',
+    'City of God', 'Inception', 'Goodfellas'];
   beforeAll(function(){
-    city = new List();
-    city.append('Seattle, WA');
-    city.append('Durham, NC');
-    city.append('Chapel Hill, NC');
-    city.append('Cary, NC');
-    city.append('Bellevue, WA');
-    city.append('Redmond, WA');
+    movie = new List();
+    movie.append('Seven Samurai');
+    movie.append('Forrest Gump');
+    movie.append('The Matrix');
+    movie.append('City of God');
+    movie.append('Inception');
+    movie.append('Goodfellas');
   });
 
   it('Should iterate', function(){
-    for(city.front(); city.currentPosition() < city.length(); city.next()){
-      expect(city.getElement()).toEqual(cities[city.currentPosition()]);
+    for(movie.front(); movie.currentPosition() < movie.length(); movie.next()){
+      expect(movie.getElement()).toEqual(cities[movie.currentPosition()]);
     }
   });
 });
