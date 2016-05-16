@@ -14,6 +14,7 @@ function List() {
   this.next = next;
   this.currentPosition = currentPosition;
   this.moveTo = moveTo;
+  this.getElement = getElement;
 }
 
 function length() {
@@ -86,4 +87,8 @@ function moveTo(position) {
   if(position > -1 && position < this.dataStore.length - 1){
     this.position = position;
   }
+}
+
+function getElement() {
+  return this.dataStore[this.position];
 }
