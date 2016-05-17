@@ -12,7 +12,7 @@ var btnOpen = document.querySelector('#open')
   , lblJaMsg = document.querySelector('#jane-msg')
 
   , closedMsg = 'Kiosk is closed'
-  , rentMsg = 'chose movie on the left and click rent. click end when finished';
+  , rentMsg = 'choose movie on the left and click rent. click end when finished';
 
 $(document).ready(function() {
   $(btnOpen).prop('disabled', false);
@@ -30,6 +30,8 @@ $(btnOpen).click(function(){
 
 $(btnClose).click(function(){
   init();
+  $(btnOpen).prop('disabled', false);
+  $(btnClose).prop('disabled', true);
 });
 
 // john
